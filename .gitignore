@@ -16,3 +16,5 @@
 # ipynb checkpoints
 *.ipynb_checkpoints
 
+# latexmk stuff
+*latexmk
