@@ -52,10 +52,10 @@ r_\mr{arm}(\omega_0 + \Omega_i) = \frac{-r_\mr{itm} - 1}{1 + r_\mr{itm}} = -1.
 \end{equation}
 In practice the sidebands are chosen to not be exactly anti-resonant in order to avoid higher harmonics from resonating in the arms. The sidebands thus have complex reflectivities
 \begin{equation}
-r_\mr{arm}(\omega_0 + \Omega_i) = \abs{r_\mr{arm}(\Omega_i)}\e^{\i (\pi + \theta_i)}
+r_\mr{arm}(\omega_0 + \Omega_i) = \abs{r_\mr{arm}(\Omega_i)}\e^{\i \theta_i}
 \label{arm-reflectivity}
 \end{equation}
-where $\abs{\theta_i} \ll 1$. For the 40~m arm cavities, $\theta_1 = 0.5^\circ$ and $\theta_2 = 2.5^\circ$.
+where $\abs{\pi - \theta_i} \ll 1$. For the 40~m arm cavities, $\theta_1 = 180.5^\circ$ and $\theta_2  = 182.5^\circ$.
 
 \section{Power Recycling Cavity}
 
@@ -65,17 +65,17 @@ The power recycling cavity length is chosen so that the carrier and both sideban
 \end{equation}
 and so $L_\mr{prc}$ is microscopically adjusted such that $\omega_0 L_\mr{prc} / c = n\pi$. For the $f_1$ sideband
 \begin{equation}
-\arg \Big[r_\mr{prm} \abs{r_\mr{arm}(\Omega_1)}\e^{\i(\pi + \theta_1)} \e^{-2\i\omega_0 L_\mr{prc}/c}
+\arg \Big[r_\mr{prm} \abs{r_\mr{arm}(\Omega_1)}\e^{\i\theta_1} \e^{-2\i\omega_0 L_\mr{prc}/c}
 \e^{-2\i\Omega_1 L_\mr{prc}/c} \Big]
-= \pi + \theta_1 + 0 - \frac{2\Omega_1 L_\mr{prc}}{c}
+= \theta_1 + 0 - \frac{2\Omega_1 L_\mr{prc}}{c}
 = 2\pi n
 \end{equation}
 and so the power recycling length must satisfy
 \begin{equation}
-L_\mr{prc} = \left(k + \frac{1}{2} - \frac{\theta_1}{2\pi} \right) \frac{c}{2f_1}.
+L_\mr{prc} = \left(k + \frac{\theta_1}{2\pi} \right) \frac{c}{2f_1}.
 \label{prc-condition}
 \end{equation}
-If \eqref{prc-condition} is satisfied for $f_1$ then it is automatically satisfied for $f_2 = 5f_1$ if $\theta_2 = 5\theta_1$. For the 40~m, we choose $k=0$ giving $L_\mr{prc} = 6.753\,\mr{m}$.
+If \eqref{prc-condition} is satisfied for $f_1$ then it is automatically satisfied for $f_2 = 5f_1$ if $\theta_2 - \pi = 5(\theta_1 - \pi)$. For the 40~m, we choose $k=0$ giving $L_\mr{prc} = 6.753\,\mr{m}$.
 
 
 \section{Signal Recycling Cavity}
@@ -86,39 +86,39 @@ The signal recycling cavity length is chosen so that the $f_2$ sideband is reson
 \begin{subequations}
 \label{src-conditions}
 \begin{align}
-L_\mr{src} &= \left( n + \frac{1}{2} - \frac{\theta_2}{2\pi}\right) \frac{c}{2f_2}\\
-L_\mr{src} &\neq \left( m + \frac{1}{2} - \frac{\theta_1}{2\pi}\right) \frac{c}{2f_1}.
+L_\mr{src} &= \left( n + \frac{\theta_2}{2\pi}\right) \frac{c}{2f_2}\\
+L_\mr{src} &\neq \left( m + \frac{\theta_1}{2\pi}\right) \frac{c}{2f_1}.
 \end{align}
 \end{subequations}
-For the 40~m the first three lengths satisfying \eqref{src-conditions} are $1.336, 4.045,$ and $9.463~\mr{m}$. For the upgrade we choose $L_\mr{src} = 4.045~\mr{m}$.
+For the 40~m the first three lengths satisfying \eqref{src-conditions} are $1.336, 4.045,$ and $9.463~\mr{m}$. For the upgrade we choose $n=1$ giving $L_\mr{src} = 4.045~\mr{m}$.
 
 \paragraph{Resonant Sideband Extraction} With RSE, the carrier has a one-way phase shift of $\pi/2$. So for the $f_2$ sideband to be resonant in the SRC,
 \begin{equation}
-\arg \Big[r_\mr{srm} \abs{r_\mr{arm}(\Omega_2)}\e^{\i(\pi + \theta_2)} \e^{-2\i\omega_0 L_\mr{src}/c}
+\arg \Big[r_\mr{srm} \abs{r_\mr{arm}(\Omega_2)}\e^{\i\theta_2} \e^{-2\i\omega_0 L_\mr{src}/c}
 \e^{-2\i\Omega_2 L_\mr{src}/c} \Big]
-= \pi + \theta_2 + \pi - \frac{2\Omega_2 L_\mr{src}}{c}
+= \theta_2 + \pi - \frac{2\Omega_2 L_\mr{src}}{c}
 = 2\pi n.
 \end{equation}
 The conditions that must be simultaneously satisfied are thus
 \begin{subequations}
 \begin{align}
-L_\mr{src} &= \left( n - \frac{\theta_2}{2\pi}\right) \frac{c}{2f_2}\\
-L_\mr{src} &\neq \left( m  - \frac{\theta_1}{2\pi}\right) \frac{c}{2f_1}.
+L_\mr{src} &= \left( n + \frac{1}{2} + \frac{\theta_2}{2\pi}\right) \frac{c}{2f_2}\\
+L_\mr{src} &\neq \left( m + \frac{1}{2}  + \frac{\theta_1}{2\pi}\right) \frac{c}{2f_1}.
 \end{align}
 \end{subequations}
 
 \paragraph{General Detuning} For a general detuning, leading to an optical spring, the carrier picks up a one-way phase of $\phi$. Thus, for $f_2$ to be resonant,
 \begin{equation}
-\arg \Big[r_\mr{srm} \abs{r_\mr{arm}(\Omega_2)}\e^{\i(\pi + \theta_2)} \e^{2\phi}
+\arg \Big[r_\mr{srm} \abs{r_\mr{arm}(\Omega_2)}\e^{\i\theta_2} \e^{2\phi}
 \e^{-2\i\Omega_2 L_\mr{src}/c} \Big]
-= \pi + \theta_2 + 2\phi - \frac{2\Omega_2 L_\mr{src}}{c}
+= \theta_2 + 2\phi - \frac{2\Omega_2 L_\mr{src}}{c}
 = 2\pi n.
 \end{equation}
 The conditions that must be simultaneously satisfied are thus
 \begin{subequations}
 \begin{align}
-L_\mr{src} &= \left( n + \frac{1}{2} + \frac{\phi}{\pi} - \frac{\theta_2}{2\pi}\right) \frac{c}{2f_2}\\
-L_\mr{src} &\neq \left( m + \frac{1}{2} + \frac{\phi}{\pi} - \frac{\theta_1}{2\pi}\right) \frac{c}{2f_2}.
+L_\mr{src} &= \left( n  + \frac{2\phi + \theta_2}{\pi} \right) \frac{c}{2f_2}\\
+L_\mr{src} &= \left( m  + \frac{2\phi + \theta_1}{\pi} \right) \frac{c}{2f_1}\\
 \end{align}
 \end{subequations}
 
@@ -153,21 +153,21 @@ r_\mr{mich} &= \frac{r_\mr{arm}}{2} \e^{-2\i\phi_+}\left( \e^{2\i\phi_-} + \e^{-
 \end{align}
 Using this, the transmission from the PRC to SRC is
 \begin{equation}
-t_{\mr{prc}\to\mr{src}} = \frac{\i r_\mr{arm} \e^{-(\phi_+ + \phi_\mr{src})} \sin 2\phi_-}
+t_{\mr{prc}\to\mr{src}} = \frac{\i r_\mr{arm} \e^{-\i(\phi_+ + \phi_\mr{src})} \sin 2\phi_-}
 {1 - r_\mr{arm} \left( r_\mr{prm} \e^{-2\i\phi_\mr{prc}} + r_\mr{srm} \e^{-2\i\phi_\mr{src}} \right) \cos 2\phi_-
 + r_\mr{arm}^2 r_\mr{prm} r_\mr{srm} \e^{-2\i (\phi_\mr{prc} + \phi_\mr{src})}}.
 \label{PRC-transmission}
 \end{equation}
-Eq.~\eqref{PRC-transmission} can be simplified by noting that all fields we are considering are resonant in the PRC and so $\theta - 2\phi_\mr{prc} = \pi$:
+Eq.~\eqref{PRC-transmission} can be simplified by noting that all fields we are considering are resonant in the PRC and so $\theta - 2\phi_\mr{prc} = 0$:
 \begin{equation}
-t_{\mr{prc}\to\mr{src}} = \frac{\i r_\mr{arm} \e^{-(\phi_+ + \phi_\mr{src})} \sin 2\phi_-}
-{1 - \abs{r_\mr{arm}} \left[ r_\mr{prm} - r_\mr{srm} \e^{\i(\theta -2\phi_\mr{src})} \right] \cos 2\phi_-
--  \abs{r_\mr{arm}}^2 r_\mr{prm} r_\mr{srm} \e^{\i(\theta - 2\phi_\mr{src})}}.
+t_{\mr{prc}\to\mr{src}} = \frac{\i r_\mr{arm} \e^{-\i(\phi_+ + \phi_\mr{src})} \sin 2\phi_-}
+{1 - \abs{r_\mr{arm}} \left[ r_\mr{prm} + r_\mr{srm} \e^{\i(\theta -2\phi_\mr{src})} \right] \cos 2\phi_-
++  \abs{r_\mr{arm}}^2 r_\mr{prm} r_\mr{srm} \e^{\i(\theta - 2\phi_\mr{src})}}.
 \label{PRC-transmission-simplified}
 \end{equation}
-Eq.~\eqref{PRC-transmission-simplified} must be used for general fields resonant in the PRC. However, for $f_2$ which also must be resonant in the SRC, $\theta_2 - 2\phi_\mr{src} = \pi$ and the transmission is
+Eq.~\eqref{PRC-transmission-simplified} must be used for general fields resonant in the PRC. However, for $f_2$ which also must be resonant in the SRC, $\theta_2 - 2\phi_\mr{src} = 0$ and the transmission is
 \begin{equation}
-t_{\mr{prc}\to\mr{src}}(f_2) = \frac{\i r_\mr{arm} \e^{-(\phi_+ + \phi_\mr{src})} \sin 2\phi_-}
+t_{\mr{prc}\to\mr{src}}(f_2) = \frac{\i r_\mr{arm} \e^{-\i(\phi_+ + \phi_\mr{src})} \sin 2\phi_-}
 {1 - \abs{r_\mr{arm}} \left( r_\mr{prm} + r_\mr{srm} \right) \cos 2\phi_-
 +  \abs{r_\mr{arm}}^2 r_\mr{prm} r_\mr{srm}}.
 \label{PRC-transmission-f2}
