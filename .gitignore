@@ -12,3 +12,7 @@
 
 # OSX .DS_Store
 *.DS_Store
+
+# ipynb checkpoints
+*.ipynb_checkpoints
+
