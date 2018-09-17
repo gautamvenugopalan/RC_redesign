@@ -14,7 +14,7 @@ test:
   - pip3 install --upgrade jupyter matplotlib 
   - pip3 install --upgrade jupyter_contrib_nbextensions
   - pip3 install -r reqs.txt
-  - jupyter-nbconvert --to notebook --execute --ExecutePreprocessor.kernel_name=python3 --output output.ipynb RClengths.ipynb  
+  - jupyter-nbconvert --to notebook --execute --ExecutePreprocessor.timeout=600 --ExecutePreprocessor.kernel_name=python3 --output output.ipynb RClengths.ipynb  
   after_script:
   - rm gitID.txt
   - rm output.ipynb
