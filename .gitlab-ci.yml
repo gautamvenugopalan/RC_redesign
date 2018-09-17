@@ -1,0 +1,26 @@
+image: ligo/software:stretch
+
+stages:
+- test
+- deploy
+
+test:
+  stage: test
+  before_script:
+  - echo $CI_COMMIT_SHA | cut -b1-8 > gitID.txt
+  script:
+#  - apt-get update -qq
+#  - apt-get install -y -qq python3-yaml python3-scipy python3-matplotlib python3-ipython
+  - pip3 install --upgrade jupyter matplotlib 
+  - pip3 install --upgrade jupyter_contrib_nbextensions
+  - pip3 install -r reqs.txt
+  - jupyter-nbconvert --to notebook --execute --ExecutePreprocessor.kernel_name=python3 --output output.ipynb RClengths.ipynb  
+  after_script:
+  - rm gitID.txt
+  - rm output.ipynb
+  cache:
+    key: "$CI_PROJECT_NAMESPACE:$CI_PROJECT_NAME:$CI_JOB_NAME"
+    untracked: true
+  artifacts:
+    when: always
+    expire_in: 4w
